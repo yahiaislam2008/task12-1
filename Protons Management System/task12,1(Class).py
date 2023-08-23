@@ -7,7 +7,9 @@ choice1 =int(input("> "))
 users =["Yahia Islam","Farris","Abdallah Elsherbiny","yousef saeed"]
 day="sunday"
 task="The task is to Use git"
-while True :
+fntasks=[]
+continues=True
+while continues :
     if choice1 <4 or choice1 > 0 :
         if choice1 ==1 :
             proton=Protons(input("Enter your username: "),int(input("And age please: ")))
@@ -15,7 +17,7 @@ while True :
             proton.notifications1()
             proton.notifications2()
             print("\n")
-            while True :
+            while continues :
                 print("chosse what do u want \n 1) View Session \n 2) Add Comment \n 3) View Task \n 4) View Users \n 5) Share Session \n 6) Download Session \n 7) Add Comment on session \n 8) Add Comment on Task \n 9) Solve Task \n 10) Submit Task \n 11) Exit")
                 choice2 = int(input(">"))    
                 if choice2 <12 or choice2 >0 : 
@@ -66,9 +68,10 @@ while True :
                         proton.submittask()
                         print("\n")
                     elif choice2 ==11:
-                        break
+                        continues=False
                 else :
-                    break
+                    continues=False
+                
         elif choice1==2:
             instructor =Instructors(input("Enter your username: "),int(input("And age please: ")))
             print(instructor.prinformations())
@@ -76,8 +79,8 @@ while True :
             instructor.notifications2()
             instructor.notificationsubmit()
             print("\n")
-            while True :
-                print("chosse what do u want\n 1) View Session\n 2) Add Comment\n 3) View Task\n 4) View Users\n 5) Share Session\n 6) Download Session\n 7) Add Comment on session\n 8) Add Comment on Task\n 9) Check Task\n 10) Add User\n 11) See Works\n 12) Add Finshed Tasks\n 13) See Correct Answer\n 14) Add Task \n 15)Exit")
+            while continues :
+                print("chosse what do u want\n 1) View Session\n 2) Add Comment\n 3) View Task\n 4) View Users\n 5) Share Session\n 6) Download Session\n 7) Add Comment on session\n 8) Add Comment on Task\n 9) Check Task\n 10) Add User\n 11) See Works\n 12) Add Finshed Tasks\n 13) See Correct Answer\n 14) Add Task \n 15) Show fnTasks \n 16) Exit")
                 choice2 = int(input(">"))    
                 if choice2 <16 or choice2 >0 : 
                     if choice2 ==1 :
@@ -95,7 +98,7 @@ while True :
                         print("\n")
                     elif choice2 ==4:
                         print("\n")
-                        instructor.viewusers()
+                        instructor.viewusers(users)
                         print("\n")
                     elif choice2 ==5:
                         print("\n")
@@ -122,7 +125,7 @@ while True :
                     elif choice2 ==10:
                         print("\n")
                         user= input("Enter the username of the person u want to add: ")
-                        instructor.adduser(user)
+                        instructor.adduser(user,users)
                         print("\n")
                     elif choice2 ==11:
                         print("\n")
@@ -130,7 +133,7 @@ while True :
                         print("\n")
                     elif choice2 ==12 :
                         print("\n")
-                        instructor.addfinshedtasks()
+                        instructor.addfinshedtasks(fntasks)
                         print("\n")
                     elif choice2 ==13:
                         print("\n")
@@ -143,17 +146,21 @@ while True :
                         instructor.addtimeforsubmit(day)
                         print("\n")
                     elif choice2 ==15:
-                        break
+                        print("\n")
+                        instructor.showingfntasks(fntasks)
+                        print("\n")
+                    elif choice2 ==16 :
+                        continues=False
                 else:
-                    break    
+                    continues=False
         elif choice1==3:
             exproton =Ex_Protons(input("Enter your username: "),int(input("And age please: ")))
             print(exproton.prinformations())
             exproton.notifications1()
             exproton.notifications2()
             exproton.notificationsubmit()
-            while True :
-                print("chosse what do u want \n 1) View Session \n 2) Add Comment \n 3) View Task \n 4) View Users \n 5) Share Session \n 6) Download Session \n 7) Add Comment on session \n 8) Add Comment on Task \n 9) Check Task \n 10) Add User \n 11) See Works \n 12)Add Finshed Tasks \n 13) See Correct Answer\n 14) Exit")
+            while continues :
+                print("chosse what do u want \n 1) View Session \n 2) Add Comment \n 3) View Task \n 4) View Users \n 5) Share Session \n 6) Download Session \n 7) Add Comment on session \n 8) Add Comment on Task \n 9) Check Task \n 10) Add User \n 11) See Works \n 12)Add Finshed Tasks \n 13) See Correct Answer\n 14) Show FnTasks \n 15) Exit")
                 choice2 = int(input(">"))    
                 if choice2 <15 or choice2 >0:
                     if choice2 ==1 :
@@ -195,21 +202,31 @@ while True :
                         print("\n")
                         exproton.checktask()
                         print("\n")
+                        
                     elif choice2 ==10:
                         print("\n")
-                        exproton.adduser()
+                        user= input("Enter the username of the person u want to add: ")
+                        exproton.adduser(user,users)
                         print("\n")
                     elif choice2 ==11:
                         print("\n")
                         exproton.seeworks()
                         print("\n")
                     elif choice2 ==12 :
-                        exproton.addfinshedtasks()
+                        print("\n")
+                        exproton.addfinshedtasks(fntasks)
+                        print("\n")
                     elif choice2 ==13:
+                        print("\n")
                         exproton.seecorrectanswer()
+                        print("\n")
                     elif choice2 ==14:
-                        break
-                else:
-                    break
-    else:
-        break
+                        print("\n")
+                        exproton.showingfntasks(fntasks)
+                        print("\n")
+                    elif choice2 ==15:
+                        continues=False
+            
+                    
+        else:
+            break

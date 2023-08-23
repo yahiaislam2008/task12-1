@@ -4,7 +4,7 @@ class Instructors(system,mangsystem) :
     def __init__(self , name , age):
         self.name=name
         self.age =age
-        system.__init__(self,name,age ,self.users)
+        system.__init__(self,name,age)
         mangsystem.__init__(self , name)
     def addTask(self , task):
         print(task ,"rbna m3ak🤚✋")

@@ -1,8 +1,7 @@
 class system :
-    def __init__(self , name ,age,users):
+    def __init__(self , name ,age):
         self.name = name
-        self.age =age
-        self.users =users
+        self.age =age        
     def prinformations(self):
         print("Hello",self.name)
     def viewSession(self):
@@ -15,9 +14,9 @@ class system :
         print("your comment has been add")
     def viewTask(self ,task):
         print(task)
-    def viewusers(self):
-        for i in range(len(self.users)):
-            print(self.users[i])
+    def viewusers(self,users):
+        for i in range(len(users)):
+            print(users[i])
     def shareSession(self):
         print("her is your link to share it 'https://classroom.google.com/c/NjE2MTE4MTcwNzI4/m/NjE5MDQ2MDMxMDkx/details'")
     def downloadSession(self):
